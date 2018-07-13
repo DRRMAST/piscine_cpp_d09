@@ -8,14 +8,19 @@ NasaError::~NasaError() throw()
 {
 }
 
-const char*	NasaError::what()
+const char* NasaError::what() const throw()
 {
 	return _message.c_str();
 }
 
-std::string const&	NasaError::getComponent() const
+std::string const& NasaError::getComponent() const
 {
 	return _component;
+}
+
+std::string const& NasaError::getMessage() const
+{
+  return _component;
 }
 
 MissionCriticalError::MissionCriticalError(std::string const& message, std::string const& component) : NasaError(message, component)

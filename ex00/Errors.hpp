@@ -7,10 +7,11 @@ class NasaError : public std::exception
 {
 	public:
 		NasaError(std::string const &message,
-		std::string const &component = "Unknown");
-		std::string const &getComponent() const;
+				std::string const &component = "Unknown");
 		virtual ~NasaError() throw();
-		virtual const char*	what();
+		std::string const &getComponent() const;
+		std::string const &getMessage() const;
+		const char*	what() const throw();
 
 	private:
 		std::string _message;
